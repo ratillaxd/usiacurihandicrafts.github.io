@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julio Flórez Museum | The Poet's Sanctuary</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; cursor: none !important; } /* Mantenemos el mouse oculto */
+    .app-root { height: 100%; overflow-y: auto; overflow-x: hidden; scroll-behavior: smooth; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .font-body { font-family: 'DM Sans', sans-serif; }
+
+    /* Custom Cursor para mantener la estética SilenDev */
+    /* Forzamos que TODO lo que esté dentro del body oculte el cursor */
+/* Ocultar el círculo en pantallas táctiles */
+@media (pointer: coarse) {
+    .cursor {
+        display: none !important;
+    }
+    * {
+        cursor: auto !important; /* Devolvemos el cursor normal para que el táctil funcione bien */
+    }
+}
+
+/* Ajuste para que el fondo no se rompa en móvil */
+@media (max-width: 768px) {
+    header {
+        background-attachment: scroll !important; /* iOS odia el fixed */
+        min-height: 60vh !important;
+    }
+    h1 {
+        font-size: 3rem !important; /* Bajamos un poco el tamaño del título en móvil */
+    }
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8B5A2B;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; /* Esto es CLAVE: permite que hagas clic a través del círculo */
+    z-index: 10000; /* Un nivel por encima de todo */
+    transition: transform 0.15s ease-out;
+    background-color: rgba(139, 90, 43, 0.1);
+    transform: translate(-50%, -50%); /* Centra el círculo exactamente en la punta del mouse */
+}
+
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-color: #8B5A2B !important; }
+
+    .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.7s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  </style>
+ </head>
+ <body class="h-full">
+  <div class="cursor"></div>
+
+  <div class="app-root w-full" id="app-root">
+   <nav class="fixed top-0 left-0 w-full z-50 bg-opacity-90 backdrop-blur-md" style="background-color: #1a1410ee;">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <a href="../Index.html" class="flex items-center gap-2 px-3 py-1 rounded-full transition hover:bg-[#8B5A2B]/20" style="color:#C4A882; border: 1px solid #8B5A2B;">
+        <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+        <span class="text-xs font-bold">BACK</span>
+      </a>
+      <span class="font-display font-bold text-lg hidden sm:inline" style="color:#F5E6D0;">Julio Flórez Museum</span>
+     </div>
+     <div class="flex gap-8 font-body text-sm" style="color:#C4A882;">
+      <a href="#about" class="hover:text-white transition">History</a>
+      <a href="#exhibits" class="hover:text-white transition">Legacy</a>
+      <a href="#visit" class="hover:text-white transition">Visit</a>
+     </div>
+    </div>
+   </nav>
+
+   <header id="home" class="relative flex items-center justify-center text-center px-6" 
+    style="min-height: 80vh; padding-top: 120px; padding-bottom: 80px; 
+    background: linear-gradient(rgba(26,20,16,0.8), rgba(26,20,16,0.8)), 
+    url('../Images/Museo.jpg') center/cover no-repeat fixed;">
+    
+    <div class="relative z-10 max-w-3xl fade-up">
+     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 font-body text-sm" style="background:rgba(139,90,43,0.2); color:#C4A882; border:1px solid rgba(139,90,43,0.3);">
+      <i data-lucide="pen-tool" style="width:14px;height:14px;"></i>
+      <span>House of the Immortal Poet</span>
+     </div>
+     <h1 class="font-display text-5xl md:text-7xl font-bold mb-6" style="color:#F5E6D0;">The Soul of Usiacurí</h1>
+     <p class="font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style="color:#A89070;">
+        Experience the home where Colombia's greatest Romantic poet, Julio Flórez, found his final inspiration. A sanctuary of literature, melancholy, and natural beauty.
+     </p>
+    </div>
+   </header>
+
+   <section id="about" class="px-6 py-24" style="background-color:#F5E6D0;">
+    <div class="max-w-4xl mx-auto text-center fade-up">
+     <span class="font-body text-sm font-medium uppercase tracking-widest" style="color:#8B5A2B;">Heritage</span>
+     <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 mb-8" style="color:#2A1F14;">A Poet's Refuge</h2>
+     <p class="font-body text-lg leading-relaxed max-w-3xl mx-auto" style="color:#5A4632;">
+        Julio Flórez arrived in Usiacurí in 1909, seeking the healing properties of the medicinal waters. What began as a health retreat became his permanent home, where he lived for 14 years and created his most profound late works.
+     </p>
+     
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+      <div class="p-8 rounded-xl text-left" style="background:rgba(139,90,43,0.05); border-left: 4px solid #8B5A2B;">
+        <h3 class="font-display font-bold text-xl mb-4" style="color:#2A1F14;">"Flores Negras"</h3>
+        <p class="font-body text-sm italic" style="color:#5A4632;">
+            "Oye: bajo las ruinas de mi aliento, hay un mundo de sombras y de luces..." 
+            Relive the melancholic verses that made him the voice of a generation in the early 20th century.
+        </p>
+      </div>
+      <div class="p-8 rounded-xl text-left" style="background:rgba(139,90,43,0.05); border-left: 4px solid #C4A882;">
+        <h3 class="font-display font-bold text-xl mb-4" style="color:#2A1F14;">National Monument</h3>
+        <p class="font-body text-sm" style="color:#5A4632;">
+            Declared a National Cultural Interest Site in 2007, the museum preserves the poet's original tomb, his library, and personal furniture.
+        </p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <section id="exhibits" class="px-6 py-24" style="background-color:#1a1410;">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="font-display text-4xl font-bold mb-12" style="color:#F5E6D0;">The Eternal Collection</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-hover p-6 rounded-2xl bg-[#2a2018] border border-[#3a2e22]">
+          <i data-lucide="book-heart" class="mx-auto mb-4" style="color:#8B5A2B; width:40px; height:40px;"></i>
+          <h3 class="font-display text-xl text-[#F5E6D0] mb-2">Original Manuscripts</h3>
+          <p class="text-[#A89070] text-sm leading-relaxed">View the original ink pages where the poet expressed his deep romanticism and his love for the Colombian landscape.</p>
+        </div>
+        <div class="card-hover p-6 rounded-2xl bg-[#2a2018] border border-[#3a2e22]">
+          <i data-lucide="camera" class="mx-auto mb-4" style="color:#8B5A2B; width:40px; height:40px;"></i>
+          <h3 class="font-display text-xl text-[#F5E6D0] mb-2">Personal Gallery</h3>
+          <p class="text-[#A89070] text-sm leading-relaxed">A collection of rare photographs documenting his life in Usiacurí alongside his wife, Petrona Moreno, and their children.</p>
+        </div>
+      </div>
+    </div>
+   </section>
+
+   <section id="visit" class="px-6 py-24" style="background-color:#F5E6D0;">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-display text-4xl font-bold mb-12" style="color:#2A1F14;">Visit Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-body">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <i data-lucide="clock" class="mx-auto mb-3" style="color:#8B5A2B;"></i>
+          <p class="font-bold">Every Day</p>
+          <p class="text-sm">1:00 PM - 5:00 PM</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <i data-lucide="map-pin" class="mx-auto mb-3" style="color:#8B5A2B;"></i>
+            <p class="font-bold">Location</p>
+            <p class="text-sm">Historic Center, Usiacurí</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <i data-lucide="info" class="mx-auto mb-3" style="color:#8B5A2B;"></i>
+            <p class="font-bold">Admission</p>
+            <p class="text-sm">Cultural Contribution</p>
+        </div>
+      </div>
+    </div>
+   </section>
+
+   <footer class="px-6 py-8 text-center bg-[#1a1410] text-[#A89070] font-body text-xs border-t border-white/5">
+    <p>Julio Flores Museum Information | SubPage Programmed by Juan Santos</p>
+   </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const cursor = document.querySelector('.cursor');
+
+    // Usamos requestAnimationFrame para que el mouse no se "laguee"
+    document.addEventListener('mousemove', (e) => {
+        window.requestAnimationFrame(() => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    });
+    
+    // Si el mouse sale de la ventana, ocultamos el círculo para que no se quede pegado en el borde
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
+
+    // Hover scale para los elementos del Nav y Cards
+    const interactives = document.querySelectorAll('a, button, .card-hover, [role="button"]');
+    interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
+            cursor.style.backgroundColor = 'rgba(139, 90, 43, 0.3)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.backgroundColor = 'rgba(139, 90, 43, 0.1)';
+        });
+    });
+</script>
+</html>
